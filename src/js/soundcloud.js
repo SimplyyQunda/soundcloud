@@ -12,10 +12,10 @@ $.ajaxSetup({
     url: "https://api.soundcloud.com/tracks"
 	});
 
-function extractInfo (data) {
-	console.log(data);
-};
+// function extractInfo (data) {
+// 	console.log(data);
+// };
 
  
 
- export {musiccloud,extractInfo};
+ export {musiccloud};
