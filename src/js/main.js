@@ -1,6 +1,6 @@
 import $ from "jquery";
 import client_id from "./token.js";
-import {musiccloud} from "./soundcloud.js";
+import {musiccloud,searchCloud} from "./soundcloud.js";
 import {extractInfo} from "./template.js";
 // import {logData} from "./soundcloud.js"
 
@@ -26,6 +26,21 @@ function setPlaying (event) {
 
 }
 
+
+
 musiccloud.then(extractInfo);
 
-$(document).on('click', '.cloud-grid', setPlaying);
+$(document)
+	.on('click', '.cloud-grid', setPlaying)
+	.on('submit', '#player', function(){
+ 		var input = $('#player input').val();
+ 		searchCloud(input).then(extractInfo);
+ 		return false;
+	});
+
+// when #player form is submitted, it runs an 
+// anonymous function that stores the "search term"
+// from the form's input and sends it to soundcloud
+// using the 'searchCloud' method and then puts the 
+// results that are returned from SC on the page using
+// the 'extractInfo' method

@@ -2,9 +2,10 @@ import $ from "jquery";
 
 function extractInfo (data) {
 	
-
+$(".results").empty();
 for (var count = 0; count < data.length; count++) {
 	var cloud = data[count];
+	console.log(count);
 
 	// console.log(cloud);
 
@@ -29,7 +30,7 @@ for (var count = 0; count < data.length; count++) {
 
 	</div>
 
-	`
+	`;
 	$(".results").append(soundcloudBlock);
 	
 
@@ -40,4 +41,4 @@ for (var count = 0; count < data.length; count++) {
 
 };
 
-export {extractInfo}
+export {extractInfo};
